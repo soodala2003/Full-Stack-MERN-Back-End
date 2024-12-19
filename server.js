@@ -32,21 +32,16 @@ app.get("/", async (req, res) => {
     description: "Build and deploy the back-end of a full-stack MERN application."
   };
 
-  try {
-    const technologies = await Technology.find({});
-    res.render("home", { locals, technologies });
-  } catch (error) {
-    console.log(error);
-  } 
+  res.send("Full Stact MERN App Back-End Deployment")
 }); 
 
-app.get("/api/users/create", (req, res) => {
+/* app.get("/api/users/create", (req, res) => {
     res.render("user_create");
-});
+}); */
 
-app.get("/api/sources/create", (req, res) => {
+/* app.get("/api/sources/create", (req, res) => {
     res.render("source_create");
-});
+}); */
 
 app.use("/api/sources", sourceRoutes);
 app.use("/api/users", userRoutes);
