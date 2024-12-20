@@ -20,7 +20,7 @@ router.get("/:id", async (req, res) => {
   const {id} = req.params;
 
   try {
-    const user = await User.findById(id);
+    const user = await User.findById({id});
 
     if (!user) {
       return res.status(404).json({ success: false, message: "User not found" });
@@ -28,7 +28,7 @@ router.get("/:id", async (req, res) => {
 
     res.status(200).json({ success: true,  data: user });
   } catch (error) {
-    console.log("Error in fetching users: ", error.message);
+    console.log("Error in fetching a user: ", error.message);
     //res.status(500).json({ success: false, message: "Server Error" });
     res.status(404).json({ success: false, message: "User not found" });
   }
